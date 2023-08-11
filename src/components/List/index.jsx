@@ -7,11 +7,15 @@ export const List = ({postList, deletePost}) => {
         <div className="container">
             <div className={styles.content}>
                 <p className="title three">Resumo financeiro</p>
-                <ul>
-                    {postList.map((post)=>{
-                        return <CardList key={post.id} post={post} deletePost={deletePost}/>
-                    })}
-                </ul>
+                {postList.length === 0?(
+                    <p>Você ainda não possui nenhum lançamento</p>
+                ):(
+                    <ul>
+                        {postList.map((post)=>{
+                            return <CardList key={post.id} post={post} deletePost={deletePost}/>
+                        })}
+                    </ul>
+                )}
             </div>
         </div>
     )

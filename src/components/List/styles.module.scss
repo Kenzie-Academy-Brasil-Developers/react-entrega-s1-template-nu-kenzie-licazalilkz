@@ -13,6 +13,12 @@ ul{
         border: 2px solid var(--color-gray-1);
         background: var(--color-gray-1);
         border-radius: 4px 0px 0px 4px;
+        &.green{
+            border-left:0.3125rem solid var(--color-secundary);
+        }
+        &.gray{
+            border-left:0.3125rem solid var(--color-gray-3);
+        }
         div{
             display: flex;
             flex-direction: column;

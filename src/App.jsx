@@ -17,10 +17,18 @@ function App() {
   }
 
   // console.log(postList);
+  const totalValue = postList.reduce((acumulador, valorAtual)=>{
+    if(valorAtual.typeValue === 'entrada'){
+      return acumulador += Number(valorAtual.moneyValue);
+    }
+    
+    return acumulador -= Number(valorAtual.moneyValue);
+
+  }, 0)
 
   return (
     <DefaultTemplate>
-      <Formulary addPost={addPost}/>
+      <Formulary addPost={addPost} totalValue={totalValue}/>
       <List postList={postList} deletePost={deletePost} />
     </DefaultTemplate>
   )

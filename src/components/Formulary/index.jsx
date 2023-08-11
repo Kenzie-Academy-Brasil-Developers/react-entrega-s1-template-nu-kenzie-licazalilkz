@@ -2,12 +2,11 @@ import { useState } from "react"
 import {v4} from "uuid";
 import styles from "./styles.module.scss"
 
-export const Formulary = ({addPost}) => {
+export const Formulary = ({addPost, totalValue, required}) => {
     const [description, setDescription] = useState("");
     const [moneyValue, setMoneyValue] = useState("");
     const [typeValue, setTypeValue] = useState("");
-    const totalValue = 0;
-    
+    required = {required} ;
     const handleSubmit = (event) => {
         event.preventDefault();
         const post = {description, moneyValue, typeValue, id: v4()};
@@ -27,7 +26,8 @@ export const Formulary = ({addPost}) => {
                         id="description" 
                         placeholder="Digite aqui a descrição"
                         value={description}
-                        onChange={(event) => setDescription(event.target.value)}/>
+                        onChange={(event) => setDescription(event.target.value)}
+                        required = {true}/>
                         <p>Exemplo: Compra de roupas</p>
                     </div>
 
@@ -40,12 +40,14 @@ export const Formulary = ({addPost}) => {
                         id="moneyValue" 
                         placeholder="Digite aqui o valor"
                         value={moneyValue}
-                        onChange={(event) => setMoneyValue(event.target.value)}/>
+                        onChange={(event) => setMoneyValue(event.target.value)}
+                        required = {true}/>
                     </div>
 
                     <div>
                         <label className="font body" htmlFor="typeValue">Tipo de Valor</label>
-                        <select className="title three" name="typeValue" id="typeValue" value={typeValue} onChange={(event) => setTypeValue(event.target.value)}>
+                        <select className="title three" name="typeValue" id="typeValue" 
+                        value={typeValue} onChange={(event) => setTypeValue(event.target.value)} required = {true}>
                             <option value=""  disabled hidden>Escolha</option>
                             <option value="entrada">Entrada</option>
                             <option value="saida">Saida</option>
